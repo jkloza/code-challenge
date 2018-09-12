@@ -9,7 +9,7 @@
 
 Fork repository to your own github account and clone
 ```
-git clone
+git clone https://github.com/YOUR_GITHUB_ACCOUNT/code-challenge.git
 ```
 then
 ```
