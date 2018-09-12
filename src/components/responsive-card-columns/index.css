@@ -1,0 +1,35 @@
+.responsive-card-columns .column {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.responsive-card-columns .four.column {
+  width: calc(25% - 12px);
+  margin-right: 12px;
+}
+
+.responsive-card-columns .four.column:nth-child(4n+0) {
+  margin-right: 0;
+}
+
+.responsive-card-columns .three.column {
+  width: calc(33.3333% - 8px);
+  margin-right: 12px;
+}
+
+.responsive-card-columns .three.column:nth-child(3n+0) {
+  margin-right: 0;
+}
+
+.responsive-card-columns .two.column {
+  width: calc(50% - 6px);
+  margin-right: 12px;
+}
+
+.responsive-card-columns .two.column:nth-child(2n+0) {
+  margin-right: 0;
+}
+
+.responsive-card-columns .one.column {
+  width: 100%;
+}
