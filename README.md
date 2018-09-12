@@ -38,7 +38,7 @@ While there are quite a few files working together here, the _only_ file you sho
 
 There are 2  things we are looking for:
 
-1) Add a function that `handles` the `submit` event
+1) Update the `handleSubmit` function
 
 -   It should only update the state when text has been entered in __both__ inputs (first name and last name)
 -   This should be setting the state of the `cards` array to _add_ a new card to the screen when submitted. Make sure not to overwrite the current array.
@@ -47,7 +47,7 @@ There are 2  things we are looking for:
 
 2) Study the code and edit `App.js` so that the number of columns that the cards appear in is set to a maximum of __two__ on large screens
 
-If you find this easy and want to show off, as a bonus, you can write an additional function to remove a single card at a time from the screen. Again, only using `App.js`.
+If you find this easy and want to show off, as a bonus, you can update the `handleClose` function to remove a single card at a time from the screen. Again, only using `App.js`.
 
 #### Submitting
 
