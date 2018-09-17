@@ -19,19 +19,22 @@ class App extends Component {
 	
 	//checks to see if first and last name fields are populated
 	if(this.state.firstName && this.state.lastName){
+	
+	//Create/Populate card object
+	var newFirstName = this.state.firstName;
+	var newLastName = this.state.lastName;	
+
+	var newCard = new Card({firstName: newFirstName,
+				lastName: newLastName});
+
 
 	//update the state of the 'cards' array
+	//Wasn't sure whether to use push or concat- decided on push 
+	this.state.cards.push(newCard);
 
-	// 1 -- create a variable to store the card title from the form
-	var cardTitle = 'Juli Kloza';
-	// 2 -- add a new card to the array
-	this.setState({ cards: this.state.cards.concat([new Card({title: 'Juli kloza'})])
-	});
-	//this.setState = ({ firstName: '', lastName: ''});
 
 	//clear inputs after a successful entry
-	this.state.firstName = '';
-	this.state.lastName = '';
+	this.setState({firstName: '', lastName: ''});
 
 	//set input focus back to 'First Name' input
 	this.setInputFocus();
@@ -39,16 +42,8 @@ class App extends Component {
 	}
 	else{
 	console.log('name fields not filled');
-
-
 	 }
  
-/*
--   It should only update the state when text has been entered in __both__ inputs (first name and last name)
--   This should be setting the state of the `cards` array to _add_ a new card to the screen when submitted. Make sure not to overwrite the current array.
--   It should clear the inputs after a successful entry using `DEFAULT_STATE`
--   It should set the input focus back to the `First Name` input after successful entry
-*/
   }
 
   handleClose (card) {
@@ -86,7 +81,6 @@ class App extends Component {
                       firstName: event.target.value
                     })
                   }} 
-		  emptyMessage = 'First name is required.'
 		/>
               </div>
               <div className='input-icon-wrapper'>
@@ -100,7 +94,6 @@ class App extends Component {
                       lastName: event.target.value
                     })
                   }}
-		  emptyMessage = 'Last name is required' 
 		/>
               </div>
               <input
@@ -115,7 +108,8 @@ class App extends Component {
         </div>
         <div className='card-field'>
           {cards ? (
-            <ResponsiveCardColumns forceWidth='three'>
+	//forced width to always be two for now
+            <ResponsiveCardColumns forceWidth='two'>
               {cards.map(card => {
                 return (
                   <Card title='full name'
@@ -124,8 +118,8 @@ class App extends Component {
                     topRightCorner={<button className='btn-plain' onClick={() => this.handleClose(card)}>close</button>}
                   >
                     <ul>
-                      <li>First Name: {card.firstName}</li>
-                      <li>Last Name: {card.lastName}</li>
+                      <li>First Name: {card.props.firstName}</li>
+                      <li>Last Name: {card.props.lastName}</li>
                     </ul>
                   </Card>
                 )
