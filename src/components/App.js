@@ -108,7 +108,7 @@ class App extends Component {
         </div>
         <div className='card-field'>
           {cards ? (
-	//forced width to always be two for now
+	//forced width to a maximum of two
             <ResponsiveCardColumns forceWidth='two'>
               {cards.map(card => {
                 return (
