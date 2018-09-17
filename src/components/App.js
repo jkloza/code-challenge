@@ -16,8 +16,34 @@ class App extends Component {
 
   handleSubmit (event) {
     event && event.preventDefault()
+	
+	console.log('submit was pressed');
+	
+	//checks to see if first and last name fields are populated
+	if(this.state.firstName && this.state.lastName){
 
+	//this.cards[this.cards.length()] = this.state;
+	//update the state of the 'cards' array
+	//adding a new card!
+	this.setState({ cards: this.state.cards.concat([new Card()]) 
+	
+	})
+
+	console.log('entered the if statement, name fields filled');
+
+	}
+	else{
+	console.log('name fields not filled');
+
+
+	 }
     // CODE GOES HERE
+/*
+-   It should only update the state when text has been entered in __both__ inputs (first name and last name)
+-   This should be setting the state of the `cards` array to _add_ a new card to the screen when submitted. Make sure not to overwrite the current array.
+-   It should clear the inputs after a successful entry using `DEFAULT_STATE`
+-   It should set the input focus back to the `First Name` input after successful entry
+*/
   }
 
   handleClose (card) {
@@ -73,6 +99,7 @@ class App extends Component {
                 type='submit'
                 value={'submit'}
               />
+
               <div className='clearfix' />
             </form>
           </Card>
