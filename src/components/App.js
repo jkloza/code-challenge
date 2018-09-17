@@ -17,19 +17,24 @@ class App extends Component {
   handleSubmit (event) {
     event && event.preventDefault()
 	
-	console.log('submit was pressed');
-	
 	//checks to see if first and last name fields are populated
 	if(this.state.firstName && this.state.lastName){
 
-	//this.cards[this.cards.length()] = this.state;
 	//update the state of the 'cards' array
-	//adding a new card!
-	this.setState({ cards: this.state.cards.concat([new Card()]) 
-	
-	})
 
-	console.log('entered the if statement, name fields filled');
+	// 1 -- create a variable to store the card title from the form
+	var cardTitle = 'Juli Kloza';
+	// 2 -- add a new card to the array
+	this.setState({ cards: this.state.cards.concat([new Card({title: 'Juli kloza'})])
+	});
+	//this.setState = ({ firstName: '', lastName: ''});
+
+	//clear inputs after a successful entry
+	this.state.firstName = '';
+	this.state.lastName = '';
+
+	//set input focus back to 'First Name' input
+	this.setInputFocus();
 
 	}
 	else{
@@ -37,7 +42,7 @@ class App extends Component {
 
 
 	 }
-    // CODE GOES HERE
+ 
 /*
 -   It should only update the state when text has been entered in __both__ inputs (first name and last name)
 -   This should be setting the state of the `cards` array to _add_ a new card to the screen when submitted. Make sure not to overwrite the current array.
@@ -80,7 +85,9 @@ class App extends Component {
                     this.setState({
                       firstName: event.target.value
                     })
-                  }} />
+                  }} 
+		  emptyMessage = 'First name is required.'
+		/>
               </div>
               <div className='input-icon-wrapper'>
                 {lastName ? <label>Last Name</label> : null}
@@ -92,7 +99,9 @@ class App extends Component {
                     this.setState({
                       lastName: event.target.value
                     })
-                  }} />
+                  }}
+		  emptyMessage = 'Last name is required' 
+		/>
               </div>
               <input
                 className='btn-pill'
